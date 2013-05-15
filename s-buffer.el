@@ -5,7 +5,7 @@
 ;; Author: Nic Ferrier <nferrier@ferrier.me.uk>
 ;; Keywords: lisp
 ;; Created: 15th May 2013
-;; Package-requires: ((s.el "1.5.0")(noflet "0.0.1"))
+;; Package-requires: ((s "1.5.0")(noflet "0.0.1"))
 ;; Version: 0.0.1
 
 ;; This program is free software; you can redistribute it and/or modify
