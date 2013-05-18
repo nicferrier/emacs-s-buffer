@@ -52,7 +52,8 @@ The arguments for format-buffer are as for `s-format'."
             "dummystr"
             :buffer buffer
             :point (with-current-buffer buffer (point)))
-           replacer extra)))
+           replacer extra)
+          buffer))
 
 (defun s-buffer|format-internal (original-s-format str replacer extra)
   (noflet ((s-format
