@@ -65,11 +65,14 @@ The arguments for format-buffer are as for `s-format'."
   "Use scope to resolve the variables in BUFFER.
 
 The buffer form of `s-lex-format'."
-  `(noflet ((s-format
-             (str replacer &optional extra)
-             (s-buffer|format-internal
-              this-fn str replacer extra)))
-           (s-lex-format ,buffer)))
+  (let ((bufsym (make-symbol "bv")))
+    `(let ((,bufsym ,buffer))
+       (noflet ((s-format
+                 (str replacer &optional extra)
+                 (s-buffer|format-internal
+                  this-fn str replacer extra)))
+               (s-lex-format ,bufsym)
+               ,bufsym))))
 
 (provide 's-buffer)
 
