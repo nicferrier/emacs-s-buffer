@@ -5,7 +5,7 @@
 ;; Author: Nic Ferrier <nferrier@ferrier.me.uk>
 ;; Keywords: lisp
 ;; Created: 15th May 2013
-;; Package-requires: ((s "1.5.0")(noflet "0.0.1"))
+;; Package-requires: ((s "1.6.0")(noflet "0.0.1"))
 ;; Version: 0.0.1
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -59,7 +59,7 @@ The arguments for format-buffer are as for `s-format'."
   (noflet ((s-format
             (str replacer &optional extra)
             (funcall original-s-format str replacer extra)))
-          (format-buffer str replacer extra)))
+      (s-buffer-format str replacer extra)))
 
 (defmacro s-buffer-lex-format (buffer)
   "Use scope to resolve the variables in BUFFER.
