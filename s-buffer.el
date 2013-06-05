@@ -7,7 +7,7 @@
 ;; Created: 15th May 2013
 ;; Url: http://github.com/nicferrier/emacs-s-buffer
 ;; Package-requires: ((s "1.6.0")(noflet "0.0.3"))
-;; Version: 0.0.3
+;; Version: 0.0.4
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -32,13 +32,16 @@
 
 (require 's)
 
+(defun s-buffer-format (buffer replacer &optional data)
+  (let ((str (with-current-buffer buffer (buffer-string))))
+    (s-format str replacer data)))
+
 (defmacro s-buffer-lex-format (buffer)
   "Use scope to resolve the variables in BUFFER.
 
 The buffer form of `s-lex-format'."
   `(s-lex-format (with-current-buffer (eval ,buffer)
                    (buffer-string))))
-
 
 (provide 's-buffer)
 
